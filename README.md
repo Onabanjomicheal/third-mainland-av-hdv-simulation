@@ -89,6 +89,13 @@ Vehicle classes simulated:
 
 ---
 
+### 🎬 Simulation Demo: AV Penetration on Third Mainland Bridge
+
+Experience a real-time simulation of traffic dynamics on Lagos’ Third Mainland Bridge with varying Autonomous Vehicle (AV) presence.
+
+[![Watch the video](https://img.youtube.com/vi/ibqoPXFH9O0/0.jpg)](https://youtu.be/ibqoPXFH9O0)
+
+
 ## 🧠 Insights & Analysis
 
 - **Travel Time:** AVs help reduce travel time slightly at 10–30% but congestion persists at 50% due to AV–HDV interactions.
