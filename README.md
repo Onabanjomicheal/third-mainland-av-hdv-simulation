@@ -1,5 +1,7 @@
 # 🚗 Impact of Autonomous Vehicle Penetration on Traffic Flow and Emissions in Lagos
 
+![image](https://github.com/Onabanjomicheal/third-mainland-av-hdv-simulation/blob/main/av.png)
+
 A simulation-based study of the Third Mainland Bridge corridor to assess how varying levels of Autonomous Vehicle (AV) adoption influence **travel time**, **emissions**, and **platooning behavior** using **SUMO (Simulation of Urban Mobility)**.
 
 ---
