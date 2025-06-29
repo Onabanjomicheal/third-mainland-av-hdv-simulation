@@ -1,127 +1,135 @@
-# 🚗 Simulation of Autonomous Vehicle Penetration on Third Mainland Bridge, Lagos
+# 🚗 Impact of Autonomous Vehicle Penetration on Traffic Flow and Emissions in Lagos
 
-This project explores how introducing Autonomous Vehicles (AVs) at varying penetration rates (10%, 30%, 50%) affects traffic dynamics, emission trends, and platooning behavior on the Third Mainland Bridge in Lagos, Nigeria.
+A simulation-based study of the Third Mainland Bridge corridor to assess how varying levels of Autonomous Vehicle (AV) adoption influence **travel time**, **emissions**, and **platooning behavior** using **SUMO (Simulation of Urban Mobility)**.
 
 ---
 
 ## 📚 Table of Contents
 
-- [📌 Overview](#-overview)
-- [🧠 Motivation](#-motivation)
-- [🌐 Network Setup](#-network-setup)
-- [🔢 Traffic Volume Derivation](#-traffic-volume-derivation)
+- [📌 Project Motivation](#-project-motivation)
+- [🌍 Network Setup](#-network-setup)
+- [📈 Methodology](#-methodology)
 - [🚦 Penetration Scenarios](#-penetration-scenarios)
-- [📈 Key Simulation Results](#-key-simulation-results)
-- [📊 Insights](#-insights)
-- [🚀 Future Work](#-future-work)
-- [👤 Author](#-author)
-- [📝 License](#-license)
+- [📊 Key Simulation Results](#-key-simulation-results)
+- [🧠 Insights & Analysis](#-insights--analysis)
+- [📌 Recommendations](#-recommendations)
+- [🔭 Future Work](#-future-work)
+- [🔧 Technologies Used](#-technologies-used)
+- [🙋‍♂️ Author Profile](#-author-profile)
 
 ---
 
-## 📌 Overview
+## 📌 Project Motivation
 
-We used the open-source traffic simulator **SUMO (Simulation of Urban Mobility)** to study how increasing levels of AV adoption might transform mobility on Africa’s busiest bridge corridor. The simulation evaluates travel time performance, vehicular emissions (CO₂, NOₓ, fuel), and the formation of AV platoons under different adoption scenarios.
-
----
-
-## 🧠 Motivation
-
-Lagos, like many megacities, faces severe traffic congestion and pollution. This project envisions how integrating AVs can:
-
-- Enhance traffic efficiency
-- Lower greenhouse emissions
-- Enable coordinated platooning
-
-The results will help guide future research and urban mobility policy, especially in emerging cities.
+Lagos is plagued by severe congestion and air pollution. As Autonomous Vehicles (AVs) become more viable, it's critical to assess their future impact on traffic efficiency and sustainability. This project simulates how AV adoption, under realistic traffic conditions, affects overall system performance.
 
 ---
 
-## 🌐 Network Setup
+## 🌍 Network Setup
 
-- Extracted the **Third Mainland Bridge** layout from **OpenStreetMap (OSM)**
-- Cleaned and optimized the network using `netconvert`
-- Calibrated lanes and vehicle routes to reflect local traffic conventions
+We modeled the **Third Mainland Bridge**, a major arterial route in Lagos, using data from **OpenStreetMap (OSM)** and manually refined it in **NetEdit** for realism.
+
+Vehicle classes simulated:
+- `av_car` – Autonomous Vehicles (AVs)
+- `hdv_car` – Human-Driven Private Cars
+- `danfo_bus` – Informal Minibuses
+- `brt` – Bus Rapid Transit Vehicles
 
 ---
 
-## 🔢 Traffic Volume Derivation
+## 📈 Methodology
 
-Since there are limited open-access traffic count datasets for Lagos, we estimated vehicle volumes using a blend of:
-
-- **Eyewitness traffic reports**
-- **Social media-based traffic updates**
-- **Local transportation blogs and research**
-- **Engineering intuition** based on road function and lane capacity
-
-Final estimated volumes per hour:
-
-| Vehicle Type     | Volume per Hour |
-|------------------|-----------------|
-| Private Cars     | 3,750           |
-| Danfo Minibuses  | 1,560           |
-| BRT Buses        | 125             |
-
-We applied **AV–HDV penetration scenarios only to private cars**, assuming all buses remain human-driven for now.
+1. **Road Network Creation:** Extracted from OSM, refined in NetEdit.
+2. **Vehicle Volume Estimation:**
+   - Based on public news reports, social media traffic visuals, and research.
+   - Estimated 5,435 vehicles/hour distributed as:
+     - 3,750 Private Cars/hour  
+     - 1,560 Minibuses/hour  
+     - 125 BRTs/hour
+3. **AV–HDV Distribution:**  
+   Applied AV penetration only to private cars. Buses remain HDV-controlled.
+4. **SUMO Simulation:**  
+   - Traffic flow modeled over time using `sumo-gui`  
+   - Used Python (Traci API) to track:
+     - Vehicle entry/exit
+     - Travel time
+     - Emission levels
+     - Platooning (AVs following AVs < 10m apart)
 
 ---
 
 ## 🚦 Penetration Scenarios
 
-| Scenario           | AV Cars | HDV Cars | Total Vehicles |
-|--------------------|---------|----------|----------------|
-| Conservative (10%) | 375     | 5,077    | 5,452          |
-| Moderate (30%)     | 1,125   | 4,327    | 5,452          |
-| Aggressive (50%)   | 1,875   | 3,577    | 5,452          |
-
-Each simulation maintains a consistent traffic volume of 5,452 vehicles per run.
+| Scenario     | AV % | AV Cars | HDV Cars | HDV Buses |
+|--------------|------|---------|----------|------------|
+| Conservative | 10%  | 375     | 3,375    | 1,685      |
+| Moderate     | 30%  | 1,125   | 2,625    | 1,685      |
+| Aggressive   | 50%  | 1,875   | 1,875    | 1,685      |
 
 ---
 
-## 📈 Key Simulation Results
+## 📊 Key Simulation Results
 
-### ✅ 10% AV Penetration
-- Simulation Time: `5471.00 s`
-- Average Travel Time: `335.21 s`
-- AV Platoon Pairs: `57`
-- Emission Leaders: HDVs and Danfo
+### 🔹 10% Penetration
+- Avg Travel Time: **335.21 s**
+- AV Platoons: **57**
+- CO₂ Emissions: **3.06 × 10⁹ mg** (HDV Car)
 
-### ✅ 30% AV Penetration
-- Simulation Time: `4903.00 s`
-- Average Travel Time: `323.95 s`
-- AV Platoon Pairs: `391`
-- AVs emit more due to numbers, but remain more efficient per vehicle
+### 🔹 30% Penetration
+- Avg Travel Time: **323.95 s**
+- AV Platoons: **391**
+- CO₂ Emissions: **2.35 × 10⁹ mg** (HDV Car)
 
-### ✅ 50% AV Penetration
-- Simulation Time: `4776.00 s`
-- Average Travel Time: `343.44 s`
-- AV Platoon Pairs: `924`
-- Highest AV coordination and platooning efficiency, but also increased congestion from traffic merging
+### 🔹 50% Penetration
+- Avg Travel Time: **343.44 s**
+- AV Platoons: **924**
+- CO₂ Emissions: **2.12 × 10⁹ mg** (AV Car)
 
 ---
 
-## 📊 Insights
+## 🧠 Insights & Analysis
 
-1. **Traffic Flow**: AVs improve traffic flow up to 30%, but 50% begins to saturate capacity without dedicated infrastructure.
-2. **Emissions**: AVs show lower emissions per vehicle, but their totals grow with volume.
-3. **Platooning**: Emerges naturally with AV density; sharp rise from 57 pairs at 10% to 924 at 50%.
-4. **Lane Dynamics**: Mixed traffic (AV–HDV) causes interruptions, especially for platooning under low penetration.
-
----
-
-## 🚀 Future Work
-
-- Simulate **dedicated AV lanes** or BRT-style corridors for platoons
-- Model intersections, rerouting behavior, and network spillbacks
-- Integrate **reinforcement learning-based traffic control**
+- **Travel Time:** AVs help reduce travel time slightly at 10–30% but congestion persists at 50% due to AV–HDV interactions.
+- **Emissions:** AVs consistently produce fewer emissions than HDVs.
+- **Platooning:** AV platoons increase non-linearly with penetration — demonstrating better flow efficiency at higher densities.
 
 ---
 
-## 👤 Author
+## 📌 Recommendations
 
-**Onabanjo Michael**  
-Simulation & Intelligent Transport Researcher  
-_Passionate about building sustainable and tech-driven mobility systems in Africa._
+1. **Policy-Driven AV Integration:** Gradual adoption (starting at 30%) can yield measurable traffic and environmental benefits.
+2. **Dedicated AV Lanes:** Consider AV-only lanes to improve platooning and reduce interaction friction.
+3. **Mixed-Traffic Management:** Implement adaptive signal controls or V2X systems to handle AV–HDV coordination.
+4. **Public Education & Regulation:** Prepare for behavioral and legal shifts in road usage with AVs in the mix.
+5. **Further Study:** Expand simulations to include incident response, weather conditions, or intersection behavior.
 
 ---
 
+## 🔭 Future Work
+
+- **Real-World Calibration:** Collect actual traffic counts for better calibration beyond social media estimates.
+- **Intelligent Signal Control:** Integrate Deep Reinforcement Learning (e.g., Q-learning) for signal phase optimization.
+- **Behavioral Diversity:** Simulate AV behaviors like cooperative merging, rerouting, or V2V/V2I response.
+- **Geographic Expansion:** Extend analysis to other Lagos corridors or pan-African urban settings.
+- **Multi-agent Interaction Models:** Study AV-HDV negotiation in denser traffic or intersections.
+
+---
+
+## 🔧 Technologies Used
+
+- **SUMO** (1.23.1) – Microscopic traffic simulator
+- **Python** – with Traci API, Pandas, Matplotlib
+- **NetEdit** – SUMO network editor
+- **OpenStreetMap (OSM)** – Source for road geometry
+
+---
+
+## 🙋‍♂️ Author Profile
+
+**👤 Onabanjo Michael**  
+Transportation systems researcher and AI-for-Mobility 
+- Passionate about sustainable public transport in African cities  
+- Research interests include: AV–HDV interaction, traffic congestion, smart infrastructure, and urban mobility  
+- Founder of **Green Ride**, a vision for Nigeria's future in electric and autonomous mobility  
+
+> Connect or collaborate: *Feel free to reach out for academic or mobility-focused collaborations!*
