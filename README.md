@@ -52,15 +52,20 @@ Vehicle classes simulated:
 ## 📈 Methodology
 
 1. **Road Network Creation:** Extracted from OSM, refined in NetEdit.
-2. **Vehicle Volume Estimation:**
+2. **Traffic Demand**
+To reflect the real-world congestion on the Third Mainland Bridge, we based traffic demand on an estimated daily volume of over 105,000 vehicles—a figure reported in local traffic and infrastructure sources.
+- With an average daily vehicular traffic of 117,000, Third Mainland Bridge in Lagos has been named the busiest road in the country by the ministry of works said by **The cable Media and Publishing Limited**
+- This translates to roughly 5,435 vehicles per hour during peak flow conditions.
+While not from a single authoritative dataset, the demand profile reflects a reasonable and realistic approximation of peak-hour bridge load, sufficient for comparative simulation of AV–HDV interaction.
+4. **Vehicle Volume Estimation:**
    - Based on public news reports, social media traffic visuals, and research.
    - Estimated 5,435 vehicles/hour distributed as:
      - 3,750 Private Cars/hour  
      - 1,560 Minibuses/hour  
      - 125 BRTs/hour
-3. **AV–HDV Distribution:**  
+5. **AV–HDV Distribution:**  
    Applied AV penetration only to private cars. Buses remain HDV-controlled.
-4. **SUMO Simulation:**  
+6. **SUMO Simulation:**  
    - Traffic flow modeled over time using `sumo-gui`  
    - Used Python (Traci API) to track:
      - Vehicle entry/exit
