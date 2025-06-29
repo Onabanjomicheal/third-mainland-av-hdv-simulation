@@ -6,6 +6,16 @@ A simulation-based study of the Third Mainland Bridge corridor to assess how var
 
 ---
 
+### 🎬 Simulation Demo: AV Penetration on Third Mainland Bridge
+
+Explore how different levels of Autonomous Vehicle (AV) penetration affect traffic dynamics on Lagos' busiest corridor.
+
+[![Watch the video](https://img.youtube.com/vi/ibqoPXFH9O0/0.jpg)](https://youtu.be/ibqoPXFH9O0)
+
+🔗 [Click here to watch on YouTube](https://youtu.be/ibqoPXFH9O0)
+
+> 🎥 This 40-second demo provides a high-level visual of our SUMO simulation environment. For full methodology, scenarios, and results, see the rest of this repo.
+
 ## 📚 Table of Contents
 
 - [📌 Project Motivation](#-project-motivation)
@@ -88,13 +98,6 @@ Vehicle classes simulated:
 - CO₂ Emissions: **2.12 × 10⁹ mg** (AV Car)
 
 ---
-
-### 🎬 Simulation Demo: AV Penetration on Third Mainland Bridge
-
-Experience a real-time simulation of traffic dynamics on Lagos’ Third Mainland Bridge with varying Autonomous Vehicle (AV) presence.
-
-[![Watch the video](https://img.youtube.com/vi/ibqoPXFH9O0/0.jpg)](https://youtu.be/ibqoPXFH9O0)
-
 
 ## 🧠 Insights & Analysis
 
