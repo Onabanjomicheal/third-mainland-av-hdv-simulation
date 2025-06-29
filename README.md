@@ -126,10 +126,9 @@ Vehicle classes simulated:
 
 ## 🙋‍♂️ Author Profile
 
-**👤 Onabanjo Michael**  
-Transportation systems researcher and AI-for-Mobility 
-- Passionate about sustainable public transport in African cities  
-- Research interests include: AV–HDV interaction, traffic congestion, smart infrastructure, and urban mobility  
-- Founder of **Green Ride**, a vision for Nigeria's future in electric and autonomous mobility  
+**Onabanjo Micheal**  
+Engineer | Researcher | Builder  
+Passionate about AI for urban mobility, intelligent systems, and climate-resilient infrastructure.  
+🔗 [LinkedIn Profile](https://www.linkedin.com/in/micheal-onabanjo/)
 
 > Connect or collaborate: *Feel free to reach out for academic or mobility-focused collaborations!*
