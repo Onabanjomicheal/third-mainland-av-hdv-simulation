@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2025-06-29 01:29:48 by Eclipse SUMO netedit Version 1.23.1
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <!-- VTypes -->
+    <vType id="av_car" minGap="0.50" guiShape="passenger/sedan" color="128,0,0" laneChangeModel="LC2013" carFollowModel="CACC" decel="7.50" sigma="0.40"/>
+    <vType id="brt" length="17.00" maxSpeed="24.78" vClass="bus" emissionClass="HBEFA4/PC_petrol_Euro-4" color="146,165,204" laneChangeModel="LC2013" lcCooperative="0.50" carFollowModel="IDM" accel="1.60" decel="3.0" tau="1.50" delta="0.5">
+        <param key="driverState.errorNoiseIntensityCoefficient " value="0.5"/>
+        <param key="driverState.errorTimeScaleCoefficient " value="100"/>
+        <param key="driverState.headwayChangePerceptionThreshold " value="0.5"/>
+        <param key="driverState.headwayErrorCoefficient " value="2"/>
+        <param key="driverState.initialAwareness " value="1.1"/>
+        <param key="driverState.maximalReactionTime " value="0.5"/>
+        <param key="driverState.speedDifferenceChangePerceptionThreshold " value="0.5"/>
+        <param key="driverState.speedDifferenceErrorCoefficient " value="2"/>
+        <param key="has.driverState.device " value="true"/>
+    </vType>
+    <vType id="danfo_bus" vClass="bus" emissionClass="HBEFA4/PC_petrol_Euro-4" color="yellow" laneChangeModel="LC2013" lcCooperative="0.50" carFollowModel="IDM" accel="1.0" decel="2.0" tau="1.50" delta="0.5">
+        <param key="driverState.errorNoiseIntensityCoefficient " value="0.5"/>
+        <param key="driverState.errorTimeScaleCoefficient" value="100"/>
+        <param key="driverState.headwayChangePerceptionThreshold " value="0.5 "/>
+        <param key="driverState.headwayErrorCoefficient " value="2"/>
+        <param key="driverState.initialAwareness " value="1.1"/>
+        <param key="driverState.maximalReactionTime " value="0.5"/>
+        <param key="driverState.speedDifferenceChangePerceptionThreshold " value="0.5"/>
+        <param key="driverState.speedDifferenceErrorCoefficient " value="2"/>
+        <param key="has.driverState.device " value="true"/>
+    </vType>
+    <vType id="hdv_car" lcCooperative="0.50" carFollowModel="IDM" decel="4.0" delta="0.5">
+        <param key="1 driverState.errorTimeScaleCoefficient " value="100"/>
+        <param key="driverState.errorNoiseIntensityCoefficient" value="0.5"/>
+        <param key="driverState.headwayChangePerceptionThreshold " value="0.5"/>
+        <param key="driverState.headwayErrorCoefficient" value="2"/>
+        <param key="driverState.initialAwareness" value="1.1"/>
+        <param key="driverState.maximalReactionTime" value="0.5"/>
+        <param key="driverState.speedDifferenceChangePerceptionThresholdd" value="0.5"/>
+        <param key="driverState.speedDifferenceErrorCoefficient" value="2"/>
+        <param key="has.driverState.device" value="true"/>
+    </vType>
+    <!-- Vehicles, persons and containers (sorted by depart) -->
+    <flow id="f_0" type="av_car" begin="0.00" departLane="1" color="73,248,248" from="134222253#0" to="407972969" via="134222253#0-AddedOffRampEdge 134234994" end="3600.00" vehsPerHour="468.99"/>
+    <flow id="f_1" type="av_car" begin="0.00" departLane="1" color="white" from="134222253#0" to="134222253#2" via="134222253#1" end="3600.00" vehsPerHour="468.99"/>
+    <flow id="f_10" type="brt" begin="0.00" departLane="3" color="blue" from="134222253#0" to="134222253#2" via="134222253#1" end="3600.00" vehsPerHour="31"/>
+    <flow id="f_11" type="brt" begin="0.00" departLane="0" color="blue" from="207402242#1" to="93855614#2" via="207402242#2 134234988 134234991" end="3600.00" vehsPerHour="31"/>
+    <flow id="f_12" type="brt" begin="0.00" departLane="1" color="blue" from="134222253#0" to="407972969" via="134234994" end="3600.00" vehsPerHour="31"/>
+    <flow id="f_13" type="hdv_car" begin="0.00" departLane="0" color="red" from="134222253#0" to="407972969" via="134222253#0-AddedOffRampEdge 134234994" end="3600.00" vehsPerHour="469.12"/>
+    <flow id="f_14" type="hdv_car" begin="0.00" departLane="1" color="red" from="93855614#0" to="93855614#2" via="93855614#0-AddedOffRampEdge 93855614#1" end="3600.00" vehsPerHour="469.12"/>
+    <flow id="f_15" type="hdv_car" begin="0.00" departLane="1" color="red" from="207402242#1" to="93855614#2" via="207402242#2 134234988-AddedOnRampEdge 134234988 134234991 93855614#2" end="3600.00" vehsPerHour="469.12"/>
+    <flow id="f_2" type="av_car" begin="0.00" color="cyan" from="93855614#0" to="93855614#2" via="93855614#0-AddedOffRampEdge 93855614#1" end="3600.00" vehsPerHour="468.99"/>
+    <flow id="f_3" type="av_car" begin="0.00" color="white" from="207402242#1" to="93855614#2" via="207402242#2 134234988 134234991" end="3600.00" vehsPerHour="468.99"/>
+    <flow id="f_4" type="hdv_car" begin="0.00" departLane="2" color="red" from="134222253#0" to="134222253#2" via="134222253#1" end="3600.00" vehsPerHour="469.12"/>
+    <flow id="f_5" type="danfo_bus" begin="0.00" departLane="3" from="134222253#0" to="134222253#2" via="134222253#1" end="3600.00" vehsPerHour="391.01"/>
+    <flow id="f_6" type="danfo_bus" begin="0.00" from="93855614#0" to="93855614#2" via="93855614#1" end="3600.00" vehsPerHour="391.01"/>
+    <flow id="f_7" type="danfo_bus" begin="0.00" from="207402242#1" to="93855614#2" via="207402242#2 134234991" end="3600.00" vehsPerHour="391.01"/>
+    <flow id="f_8" type="danfo_bus" begin="0.00" departLane="0" from="134222253#0" to="407972969" via="134222253#0-AddedOffRampEdge 134234994" end="3600.00" vehsPerHour="391.01"/>
+    <flow id="f_9" type="brt" begin="0.00" departLane="1" color="blue" from="93855614#0" to="93855614#2" via="93855614#1" end="3600.00" vehsPerHour="31"/>
+</routes>
