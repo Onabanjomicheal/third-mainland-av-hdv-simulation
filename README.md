@@ -116,8 +116,8 @@ While not from a single authoritative dataset, the demand profile reflects a rea
 
 1. **Policy-Driven AV Integration:** Gradual adoption (starting at 30%) can yield measurable traffic and environmental benefits.
 2. **Dedicated AV Lanes:** Consider AV-only lanes to improve platooning and reduce interaction friction.
-3. **Mixed-Traffic Management:** Implement adaptive signal controls or V2X systems to handle AV–HDV coordination.
-4. **Public Education & Regulation:** Prepare for behavioral and legal shifts in road usage with AVs in the mix.
+3. **Mixed-Traffic Management:** Implement adaptive signal controls to handle AV–HDV coordination.
+4. **Electric Vehicle (EV)**: As many AVs will be electric by design, layer EV infrastructure strategy into AV policy—charging accessibility, route planning, and energy grid integration must be considered from day one.
 5. **Further Study:** Expand simulations to include incident response, weather conditions, or intersection behavior.
 
 ---
